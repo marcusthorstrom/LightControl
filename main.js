@@ -23,7 +23,7 @@ app.post("/:chanel/:number/:power", function (req, res) {
     res.status(400).send("Wrong chanel");
     return;
   }
-  if (!(number == ("1" || "2" || "3" || "4"))) {
+  if (!(number == (1 || 2 || 3 || 4))) {
     res.status(400).send("Wrong number");
     return;
   }
