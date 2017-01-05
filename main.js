@@ -23,7 +23,7 @@ app.listen(3000, function () {
 
 app.post("/:channel/:number/:power", function (req, res) {
 
-  var chanel = req.params.channel.toUpperCase();
+  var channel = req.params.channel.toUpperCase();
   var number = req.params.number;
   var power = req.params.power;
   console.log("channel: ", channel);
