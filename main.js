@@ -26,9 +26,6 @@ app.post("/:channel/:number/:power", function (req, res) {
   var channel = req.params.channel.toUpperCase();
   var number = req.params.number;
   var power = req.params.power;
-  console.log("channel: ", channel);
-  console.log("number: ", number);
-  console.log("power: ", power);
 
   if (0) {
     console.log("0 is true");
@@ -51,7 +48,7 @@ console.log("Powr:",power);
     return;
   }
 
-  child_process.exec("python test.py 5 "+ channel +" "+number+" "+power, function(error, stdout, stderr){
+  child_process.exec("python "+__dirname+"/test.py 5 "+ channel +" "+number+" "+power, function(error, stdout, stderr){
       if(!error) {
         res.status(200).send("it's "+power+"!");
         return;
