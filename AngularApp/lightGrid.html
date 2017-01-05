@@ -1,0 +1,50 @@
+<style media="screen">
+  .lightbox {
+    margin: 0px;
+    background-color: #2c3e50;
+    padding: 20px;
+  }
+  .square {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  .lightbox h3 {
+    text-align: center;
+    color: white;
+  }
+  .buttons {
+    text-align: center;
+    display: flex;
+  }
+  .lightIcon {
+    width: 32px;
+    margin: auto;
+    color: #f1c40f;
+  }
+</style>
+
+<div ng-controller="LightsGrid" class="grid content">
+  <div class="col-md-4 square" ng-repeat="light in lights">
+    <div class=" lightbox">
+      <h3>{{light.name}}</h3>
+      <div class="lightIcon">
+        <i class="fa fa-lightbulb-o fa-4x" aria-hidden="true"></i>
+      </div>
+
+
+      <div class="buttons">
+        <div class="col-xs-6">
+          <button type="button" style="width:100%" class="btn btn-success" ng-click="on(light)">ON</button>
+        </div>
+        <div class="col-xs-6">
+          <button type="button" style="width:100%" class="btn btn-danger" ng-click="off(light)">OFF</button>
+        </div>
+      </div>
+
+
+
+
+    </div>
+  </div>
+
+</div>

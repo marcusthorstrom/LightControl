@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html >
+<head>
+	<title>Home Automation</title>
+  <script src="/jquery/dist/jquery.min.js" charset="utf-8"></script>
+  <script type="text/javascript" src="/angular/angular.min.js"></script>
+  <link href="/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/fa/css/font-awesome.min.css">
+  <script src="/bootstrap/dist/js/bootstrap.min.js" charset="utf-8"></script>
+  <link rel="icon" type="image/png" href="/img/home.png">
+
+</head>
+<style media="screen">
+	.lights {
+		background: #34495e;
+	}
+</style>
+<body ng-app="Lights" class="lights">
+
+  <div class="col-md-12 content ">
+
+    <div ng-include="'AngularApp/lightGrid.html'"></div>
+
+  </div>
+
+  <script src="angularApp/main.js" charset="utf-8"></script>
+  <script src="angularApp/angular.js" charset="utf-8"></script>
+
+</body>
+</html>

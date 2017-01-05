@@ -1,21 +1,32 @@
 var express = require('express')
+var path = require('path')
 const child_process = require('child_process')
 var app = express()
 
+app.use('/angular', express.static(__dirname + '/node_modules/angular'));
+app.use('/bootstrap', express.static(__dirname + '/node_modules/bootstrap'));
+app.use('/angularApp', express.static(__dirname + '/AngularApp'));
+app.use('/img', express.static(__dirname + '/img'));
+app.use('/fa', express.static(__dirname + '/node_modules/font-awesome'));
+app.use('/jquery', express.static(__dirname + '/node_modules/jquery'));
+
+
+
+
 app.get('/', function (req, res) {
-  res.send('Hello World!')
+  res.sendFile(__dirname+"/AngularApp/index.html")
 })
 
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!')
 })
 
-app.post("/:chanel/:number/:power", function (req, res) {
+app.post("/:channel/:number/:power", function (req, res) {
 
-  var chanel = req.params.chanel.toUpperCase();
+  var chanel = req.params.channel.toUpperCase();
   var number = req.params.number;
   var power = req.params.power;
-  console.log("chanel: ", chanel);
+  console.log("channel: ", channel);
   console.log("number: ", number);
   console.log("power: ", power);
 
@@ -23,8 +34,8 @@ app.post("/:chanel/:number/:power", function (req, res) {
     console.log("0 is true");
   }
 
-  if (["A", "B", "C", "D"].indexOf(chanel) == -1) {
-    res.status(400).send("Wrong chanel");
+  if (["A", "B", "C", "D"].indexOf(channel) == -1) {
+    res.status(400).send("Wrong channel");
     return;
   }
   if (["1", "2", "3", "4"].indexOf(number) == -1) {
@@ -40,7 +51,7 @@ console.log("Powr:",power);
     return;
   }
 
-  child_process.exec("python test.py 5 "+ chanel +" "+number+" "+power, function(error, stdout, stderr){
+  child_process.exec("python test.py 5 "+ channel +" "+number+" "+power, function(error, stdout, stderr){
       if(!error) {
         res.status(200).send("it's "+power+"!");
         return;
