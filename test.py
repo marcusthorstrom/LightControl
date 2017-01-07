@@ -1,6 +1,8 @@
 import sys, time, argparse
 import RPi.GPIO as GPIO
 
+# From: https://gist.github.com/tomwaters/8463330
+
 on = "1111"
 off = "1110"
 one = "0111"
