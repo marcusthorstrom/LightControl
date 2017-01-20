@@ -2,6 +2,7 @@ var express = require('express')
 var path = require('path')
 const child_process = require('child_process')
 var app = express()
+var ligth = require('./light.js')
 
 app.use('/angular', express.static(__dirname + '/node_modules/angular'));
 app.use('/bootstrap', express.static(__dirname + '/node_modules/bootstrap'));
@@ -47,8 +48,16 @@ console.log("Powr:",power);
     res.status(400).send("Wrong power");
     return;
   }
+  t0 = time();
+  ligth.sendcommand(5, channel, number, power, function () {
+    console.log("Time for gipo "+ time() - t0);
+    res.status(200).send("it's "+power+"!");
+    return;
+  })
 
+  t1 = time();
   child_process.exec("python "+__dirname+"/test.py 5 "+ channel +" "+number+" "+power, function(error, stdout, stderr){
+      console.log("Python time: " + time() - t1);
       if(!error) {
         res.status(200).send("it's "+power+"!");
         return;
