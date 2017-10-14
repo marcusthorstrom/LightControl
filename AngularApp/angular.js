@@ -37,6 +37,11 @@ angular.module('Lights').controller('LightsGrid', ["$http", "$scope", function($
     name:"Tv-rum",
     channel:"A",
     number:"1"
+  },
+  {
+    name:"Kaffebryggare",
+    channel:"B",
+    number:"1"
   }
 ];
 
